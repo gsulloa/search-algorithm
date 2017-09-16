@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import _ from 'lodash';
 
 import Board from "./Board"
-import { WALL, SOLUTION, START } from "./constants"
+import { WALL, SOLUTION, START, CLOSED, OPEN } from "./constants"
 
 class Solver extends Component{
   state = {

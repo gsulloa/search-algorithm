@@ -15,7 +15,9 @@ const colors= [
   "",
   "red",
   "green",
-  "brown"
+  "brown",
+  "pink",
+  "blue"
 ]
 
 class Block extends Component{
