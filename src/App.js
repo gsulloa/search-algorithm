@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import Solver from './Solver'
+import Solver from './components/Solver';
+import { connect, Provider } from 'react-redux';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Provider store={this.props.store}>
         <Solver/>
-      </div>
+      </Provider>
     );
   }
 }
 
-export default App;
+export default connect()(App);
