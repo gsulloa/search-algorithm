@@ -1,11 +1,11 @@
-import generalSearch from "./GeneralSearch"
+import { timedGeneralSearch } from "./GeneralSearch"
 
 const join = (newElements,array) => {
   return array.concat(newElements);
 }
 
 const BFS = (S,A,s,g) => {
-  return generalSearch(S,A,s,g, join);
+  return timedGeneralSearch(S,A,s,g, join);
 }
 
 export default BFS;

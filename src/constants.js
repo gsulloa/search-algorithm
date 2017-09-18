@@ -24,6 +24,7 @@ export const SOLUTION = 2;
 export const WALL = 3;
 export const OPEN = 4;
 export const CLOSED = 5;
+export const PATH = 6;
 
 /*
 BLOCK COLORS
@@ -34,5 +35,6 @@ export const colors= [
   "green",
   "brown",
   "pink",
-  "blue"
+  "blue",
+  "yellow"
 ]

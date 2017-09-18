@@ -95,7 +95,7 @@ export function clickBlock(row, col, selecting, currentType){
   }
 }
 
-function changeBlock(row, col, newType){
+export function changeBlock(row, col, newType){
   return({
     type: CHANGE_TYPE,
     row, col, newType
@@ -119,5 +119,18 @@ function select(type, pos){
       return { type: SELECTING_SOLUTION, pos }
     default:
       return
+  }
+}
+
+export function refresh(table,start,solution){
+  return async (dispatch) => {
+    let i,j;
+    for(i in table){
+      for(j in table[i]){
+        await dispatch(changeBlock(i,j,false))
+      }
+    }
+    await dispatch(changeBlock(start.row,start.col,START))
+    await dispatch(changeBlock(solution.row, solution.col, SOLUTION))
   }
 }

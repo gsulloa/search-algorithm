@@ -30,8 +30,8 @@ class Board extends Component{
               i = 0;
               j += 1;
               return(
-                <Tr  style={{border: "1px solid black"}}>{row.map(col => 
-                  <Block  j={j-1} i={i++} {...col} />  
+                <Tr key={j-1}  style={{border: "1px solid black"}}>{row.map(col => 
+                  <Block key={(j-1)+"-"+i}  j={j-1} i={i++} {...col} />  
                   )}
                 </Tr>)
             }
