@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import configureStore from "./redux/store"
+import "./css/index.css" 
 
 const table = new Array(10);
 for(let j = 0; j < table.length; j++){
