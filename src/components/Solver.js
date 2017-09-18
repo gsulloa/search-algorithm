@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {SELECT_SOLUTION, SELECT_START, SELECT_WALL} from "../constants";
 
 import { changeSelecting } from "../redux/modules/selecting"
-import { refresh } from "../redux/modules/board"
+import { refresh, clearBoard } from "../redux/modules/board"
 
 import DFS from "../algorithms/DFS"
 import BFS from "../algorithms/BFS"
@@ -18,7 +18,8 @@ const mapDispatchToProps = (dispatch) => {return {
   changeSelecting: (select) => dispatch(changeSelecting(select)),
   DFS: (S,A,s,g) => dispatch(DFS(S,A,s,g)),
   BFS: (S,A,s,g) => dispatch(BFS(S,A,s,g)),
-  refresh: (table,start,solution) => dispatch(refresh(table, start,solution))
+  refresh: (table,start,solution) => dispatch(refresh(table, start,solution)),
+  clear: () => dispatch(clearBoard())
 }}
 
 class Solver extends Component{
@@ -53,6 +54,7 @@ class Solver extends Component{
         </div>
         <div>
           <button onClick={ () => this.props.refresh(this.props.table, this.props.start, this.props.solution)}>Refresh</button>
+          <button onClick={ () => this.props.clear()}>Clear</button>
         </div>
       </div>
     )

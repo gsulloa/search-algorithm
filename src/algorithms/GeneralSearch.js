@@ -10,6 +10,10 @@ g: Solution Block
 join: function to join our lists
 */
 const TIME = 100;
+
+/*
+TODO: fix no solution problem
+*/
 export function timedGeneralSearch(S,A,s,g,join){
   return (dispatch)=>{
     let u, v, succ, next;
@@ -17,8 +21,7 @@ export function timedGeneralSearch(S,A,s,g,join){
     let open = [s];
     s.parent = null;
     dispatch(changeBlock(s.pos.row,s.pos.col, OPEN))
-    let whileOpen = setInterval( () => {
-      if(open == []){clearInterval(whileOpen)}
+    const whileOpen = setInterval( () => {
       u = open.shift()
       closed.push(u)
       dispatch(changeBlock(u.pos.row,u.pos.col, CLOSED))
@@ -33,7 +36,7 @@ export function timedGeneralSearch(S,A,s,g,join){
           while(sol.parent != null){
             dispatch(changeBlock(sol.pos.row, sol.pos.col, PATH))
             sol = sol.parent;
-            if(sol.parent == null){
+            if(sol.parent === null){
               setTimeout(() =>{
                 dispatch(changeBlock(s.pos.row, s.pos.col, START))
                 dispatch(changeBlock(g.pos.row, g.pos.col, SOLUTION))
@@ -45,7 +48,9 @@ export function timedGeneralSearch(S,A,s,g,join){
         }
       }
       open = join(next,open)
-
+      if(open === []){
+        clearInterval(whileOpen)
+      }
     }, TIME)
   }
 }

@@ -4,7 +4,6 @@ import App from './App';
 import configureStore from "./redux/store"
 
 const table = new Array(10);
-console.log(table.length)
 for(let j = 0; j < table.length; j++){
   table[j] = new Array(10);
   for(let i = 0; i < table[j].length; i++){
@@ -13,8 +12,7 @@ for(let j = 0; j < table.length; j++){
         col: i,
         row: j
       }
-    }
-    
+    }   
   }
 }
 
