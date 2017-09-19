@@ -25,7 +25,7 @@ export function timedGeneralSearch(S,A,s,g,join){
       closed.push(u)
       dispatch(changeBlock(u.pos.row,u.pos.col, CLOSED))
       succ = getSuccessors(S,A,u)
-      next = _.filter(succ, (element) => _.some(open.concat(closed),element))
+      next = _.filter(succ, (element) => !_.some(open.concat(closed),element))
       for(let i in next){
         v = next[i];
         v.parent = u;
@@ -81,7 +81,7 @@ export default function generalSearch(S,A,s,g, join){
       //console.log("successors of element: ", succ)
       //Getting posible next elements (without open and closed)
 
-      next = _.filter(succ, (element) => _.some(open.concat(closed),element))
+      next = _.filter(succ, (element) => !_.some(open.concat(closed),element))
       //console.log("next elements: ", next)
       for(let i in next){
         v = next[i];
